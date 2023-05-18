@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>page_grid</title>
+    <link rel="icon" href="Demo16.png" type="image/x-icon">
+	<style>
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #8bf3ff;
+            justify-content: center;
+            align-items: center;
+        }
+        .grid {
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: 3em;
+            border-color: black;
+            background-color: #393939;
+            width: 100vw;
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(0);
+            z-index: 2;
+        }
+        .grid.hide {
+            transform: translateY(-3em);
+        }
+
+        .grid div {
+            display: inline-flex;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+            font-size: 1em;
+            text-align: center;
+        }
+        .grid .box1 {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            text-align: center;
+            background-image: url('Demo16.png');
+            background-size: 40px;
+        }
+        .grid .box1_1 {
+            width: 100%;
+            margin: auto;
+            background-color: rgba(127, 255, 212, 0);
+            justify-self: center;
+            font-size: 2em;
+            border-style: none;
+        }
+        .grid .box2 {
+            background-color: #FA96F0;
+            color: #ffffff;
+            border-style: solid;
+            border-width: 1px;
+            border-color: black;
+        }
+        .grid .box2:hover {
+            background-color: #0064FF;;
+        }
+        .grid .box3:hover {
+            filter: invert(90%);
+        }
+        .grid .box1_2 {
+            display: flex;
+            flex-direction: column;
+            background-color: #00000000;
+            margin: auto;
+            padding: 5px;
+            user-select: none;
+        }
+        .grid .box1_2 p {
+            background-color: #00000000;
+            margin: auto;
+            user-select: none;
+            font-size: small;
+        }
+        .main_grid {
+            position: relative;
+            display: grid;
+            padding: 5vw 2vw;
+            width: 90vw;
+            height: auto;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 500px;
+            grid-column-gap: 1em;
+            grid-row-gap: 1em;
+            background-color: rgba(246, 246, 246, 0);
+            z-index: 1;
+            top: 100px;
+            bottom: 100px;
+            border-radius: 15px;
+        }
+        .main_grid div{
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            background-image: url('Demo16.png');
+            background-size: 20px;
+            border-radius: 15px;
+            border-style: solid;
+            border-color: #FA96F0;;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .main_grid .directions {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(233, 233, 233);
+            background-image: url();
+            padding: 10px 20px;
+            bottom: 0;
+            height: 20%;
+            width: 100%;
+            border-style: none;
+            line-height: 1em;
+        }
+        .main_grid img {
+            height: 100%;
+        }
+        .main_grid div:hover:not(.directions) {
+            transform: scale(1.1);
+            filter: hue-rotate(90deg);
+        }
+        hr.ma  {
+            border: 0;
+            height: 1px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="box2" onclick="location.href='MBTItest.html'">
+            <div class="box1_2">START
+            </div>
+        </div>
+        <div class="box1" onclick="location.href='index_grid.html'">
+            <div class="box1_1">
+            <marquee scrollamount="20">UNIQUE</marquee>
+            </div>
+        </div>
+            <div class="box3" onclick="location.href='page_grid.html'"> 
+                <div class="box1_2">
+                    about
+               </div>
+            </div>
+            <div class="box3" onclick="location.href='page_shop.html'">
+                <div class="box1_2">shop
+                </div>
+            </div>
+            <div class="box3" onclick="location.href='blackon.html'">
+                <div class="box1_2">world
+                </div>
+            </div>
+        </div>
+	</div>
+    <div class="main_grid">
+        <div><img src="doodle_art.png" ><div class="directions">商品1<p>關於商品的簡介XXX</p></div></div>
+        <div><img src="doodle_art.png" ><div class="directions">商品2<p>關於商品的簡介XXX</p></div></div>
+        <div>測試用</div>
+        <div>測試用</div>
+        <div>測試用</div>
+        <div>測試用</div>
+        <div>測試用</div>
+        <div>測試用</div>
+        <div>測試用</div>
+        <div>測試用</div>
+        <div>測試用</div>
+    </div>
+</body>
+<script>
+    const navbar = document.querySelector(".grid");
+let prevScrollpos = window.pageYOffset;
+window.addEventListener("scroll", () => {
+  const currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    navbar.classList.remove("hide");
+  } 
+  if (prevScrollpos < currentScrollPos) {
+    navbar.classList.add("hide");
+  }
+  prevScrollpos = currentScrollPos;
+});
+</script>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Hover Example</title>
+    <link rel="icon" href="Demo16.png" type="image/x-icon">
+	<style>
+        body {
+            display: flex;
+            background-color: #000000;
+            justify-self: center;
+            align-items: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            border-color: black;
+            grid-auto-rows: 1fr;
+            height: 97vh;
+        }
+        .grid div {
+            display: inline-flex;
+            background-color: rgb(234, 234, 234);
+            border-radius: 20px;
+            font-family: "IBM Plex Sans";
+            font-weight: bolder;
+            font-size: 2em;
+            text-align: center;
+        }
+        .grid .box1 {
+            grid-column-start: 3;
+            grid-column-end: 8;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            text-align: center;
+            background-image: url('Demo16.png');
+            background-size: 40px;
+        }
+        .grid .centerB {
+            width: 100%;
+            margin: auto;
+            background-color: rgba(8, 255, 173, 0);
+            justify-self: center;
+            font-size: 10em;
+            border-style: none;
+            overflow: hidden;
+        }
+        .grid .box2 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            background-color: #FA96F0;
+            color: #ffffff;
+            border-style: solid;
+            border-width: 1px;
+            border-color: black;
+        }
+        .grid .box2:hover {
+            background-color: #0064FF;
+        }
+        .grid .about {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 3;
+            grid-row-end: 5;
+            color: #000000;
+        }
+        .grid .shop {
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 3;
+            grid-row-end: 5;
+            color: #000000;
+        }
+        .grid .world {
+            grid-column-start: 5;
+            grid-column-end: 8;
+            grid-row-start: 3;
+            grid-row-end: 4;
+            color: #000000;
+        }
+        .grid .qrcode {
+            grid-column-start: 5;
+            grid-column-end: 6;
+            grid-row-start: 4;
+            grid-row-end: 5;
+            color: #000000;
+        }
+        .grid .box7 {
+            grid-column-start: 6;
+            grid-column-end: 7;
+            grid-row-start: 4;
+            grid-row-end: 5;
+            background-image: url('Demo16.png');
+            background-size: 80px 20px;
+            color: #000;
+            border-style: solid;
+            border-width: 1px;
+        }
+        .grid .world:hover {
+            filter: invert(90%);
+        }
+        .grid .shop:hover {
+            filter: invert(90%);
+        }
+        .grid .about:hover {
+            filter: invert(90%);
+        }
+        
+        .grid .centerA {
+            display: flex;
+            flex-direction: column;
+            background-color: #00000000;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            padding: 5px;
+        }
+        .grid .centerA p {
+            background-color: #00000000;
+            margin: auto;
+            user-select: none;
+            font-size: small;
+            line-height: 150%;
+        }
+
+        .hover-image {
+            width: 80%;
+            height: auto;
+            transition: all 0.1s ease;
+        }
+        
+        .hover-image:hover {
+            filter: brightness(0.8) saturate(0) hue-rotate(100deg);
+        }
+        
+        .hover-image:active {
+            filter: blur(1px);
+            background-color: rgb(0, 0, 0);
+        }
+
+        #face1 {
+            position: absolute;
+            top: 40px;
+            left: 30px;
+        }
+        #face2 {
+            position: absolute;
+            top: 100px;
+            left: 50vw;
+        }
+        #face3 {
+            position: absolute;
+            top: 20vw;
+            right: 4vw;
+            background-color: rgba(255, 255, 255, 0);
+            display: flex;
+            flex-direction: column;
+        }
+        #face4 {
+            position: absolute;
+            bottom: 10vw;
+            right: 20vw;
+            background-color: rgba(255, 255, 255, 0);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h3 {
+            background-color: azure;
+            color: #bdbdbd;
+            line-height: 3em;
+            text-align: center;
+            letter-spacing: 2px;
+            font-size: 1em;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="box2" onclick="location.href='MBTItest.html'">
+            <div class="centerA">START
+                <p>造就獨特，尤其是你</p>
+            </div>
+        </div>
+        <div class="box1" onclick="location.href='index_grid.html'">
+            <div class="centerB">
+            <marquee scrollamount="20"><img src="uniquer_logo_web.png" width="200%"></marquee>
+            </div>
+        </div>
+            <div class="about" onclick="location.href='page_grid.html'"> 
+                <div class="centerA">
+                    about
+                    <p>我們是專注於創造獨特的公司</p>
+                    <p>為了讓你有與眾不同的外貌</p>
+                    <p>這邊說明一些關於計畫的簡介</p>
+               </div>
+            </div>
+            <div class="shop" onclick="location.href='page_shop.html'">
+                <div class="centerA">shop
+                    <p>something goods</p>
+                    <p>賣一些酷東西，商品型錄</p>
+                </div>
+            </div>
+            <div class="world" onclick="location.href='page_world.html'">
+                <div class="centerA">world
+                    <p>Other cucnasda</p>
+                    <p>其他顧客回饋</p>
+                </div>
+            </div>
+            <div class="qrcode"><div class="centerA"><img src="IGqrcode.png" width="70%"></div></div>
+            <div class="box7"><div class="centerA"><p>make by<br>#annnnnde<br>@sonnngyou.ghost®</p></div></div>
+            
+    </div>
+	</div>
+    
+	<script>
+        // 定義要變更的圖片
+const hoverImages = {
+    'astronau.png': 'human.png',
+    'human.png': 'astronau.png',
+    'face1.png': 'face2.png',
+    'face2.png': 'face1.png',
+  };
+  
+  // 將滑鼠事件函數封裝成一個名為 changeImage 的函數
+  function changeImage(event) {
+    const currentSrc = event.target.getAttribute('src');
+    if (currentSrc in hoverImages) {
+      event.target.setAttribute('src', hoverImages[currentSrc]);
+    }
+  }
+  
+  // 取得所有要加滑鼠事件的圖片
+  const hoverImageElements = document.querySelectorAll('.hover-image');
+  
+  // 在每個圖片上加上滑鼠事件
+  hoverImageElements.forEach((element) => {
+    element.addEventListener('mouseover', changeImage);
+    element.addEventListener('mouseout', changeImage);
+  });  
+    </script>
+</body>
+</html>

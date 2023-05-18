@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>world</title>
+    <link rel="icon" href="Demo16.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="nav_bar.css">
+	<style>
+        body {
+            background-color: #000000;
+        }
+        .main {
+            z-index: -1;
+            border-radius: 15px;
+        }
+        .main img {
+            line-height: 0px;
+            width: 100%;
+            margin: 0px;
+            margin-top:-2px; 
+			margin-bottom:-2px;
+        }
+        hr.ma  {
+            border: 0;
+            height: 1px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="box2" onclick="location.href='MBTItest.html'">
+            <div class="box1_2">START
+            </div>
+        </div>
+        <div class="box1" onclick="location.href='index_grid.html'">
+            <div class="box1_1">
+                <marquee scrollamount="20"><img src="uniquer_logo_web.png" width="60%"></marquee>
+            </div>
+        </div>
+            <div class="box3" onclick="location.href='page_grid.html'"> 
+                <div class="box1_2">
+                    about
+               </div>
+            </div>
+            <div class="box3" onclick="location.href='page_shop.html'">
+                <div class="box1_2">shop
+                </div>
+            </div>
+            <div class="box3" onclick="location.href='page_world.html'">
+                <div class="box1_2">world
+                </div>
+            </div>
+        </div>
+	</div>
+    <div class="main">
+        <div></div>
+        <img src="world_title1.png">
+        <img src="world_0.png">
+        <img src="world_1.png">
+        <img src="world_2.png">
+        <img src="world_3.png">
+        <img src="world_4.png">
+    </div>
+</body>
+<script>
+    const navbar = document.querySelector(".grid");
+let prevScrollpos = window.pageYOffset;
+window.addEventListener("scroll", () => {
+  const currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    navbar.classList.remove("hide");
+  } 
+  if (prevScrollpos < currentScrollPos) {
+    navbar.classList.add("hide");
+  }
+  prevScrollpos = currentScrollPos;
+});
+</script>
+</html>
