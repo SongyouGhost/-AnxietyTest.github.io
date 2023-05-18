@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>demo演示</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<!-- 頂部導航 -->
+<div class="headerpage"></div>
+<!--頂部導航 over-->    
+
+<!--中部主體--> 
+    <p>···程式碼省略···</p>
+<!--中部主體 over-->  
+
+<!--footer-->  
+<div class="footerpage"></div>
+<!--footer over-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(function(){
+        /*公共部分
+         * 導航欄
+         * footer CopyRight
+         */
+        $(".headerpage").load("header.html");
+        $(".footerpage").load("footer.html");
+    });
+</script>
+</body>
+</html>
