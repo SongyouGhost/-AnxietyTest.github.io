@@ -1,0 +1,2 @@
+有使用到cors，所以不能直接開。
+vs code要使用go live

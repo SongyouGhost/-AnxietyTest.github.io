@@ -1,0 +1,261 @@
+<html>
+  <head>
+    <title>簡單的Galgame</title>
+    <link rel="stylesheet" type="text/css" href="one_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap" rel="stylesheet">
+  </head>
+  <style>
+    form {
+      width: 95%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    /*這邊是單題調整*/
+    .que-con {
+      position: relative;
+      border: #000000;
+      border-bottom-style:solid;
+      border-width: 1px;
+      margin: 0;
+      padding: 10vh 30px 10vh;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 1.2em;
+      text-align: center;
+    }
+    
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+    
+    textarea {
+      width: 100%;
+      resize: vertical;
+    }
+    
+    .sumit {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #A5FF64;
+      color: #000000;
+      border: none;
+      border-radius: 15px;
+      font-size: 2em;
+      cursor: pointer;
+    }
+    button:hover{
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .gender-age-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .gender-age-container label {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+    /*這邊是拉桿*/
+    .range-slider {
+      width: 100%;
+      height: 5px;
+      background-color: #e1e1e100;
+      border-bottom-style:solid;
+      border-width: 2px;
+      position: relative;
+      margin: 10px 0;
+    }
+  
+    .range-slider input[type="range"] {
+      appearance: none;
+      width: 100%;
+      height: 20px;
+      background-color: transparent;
+      outline: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .range-slider input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background-color: #ffffff;
+      border: 1px solid #000000;
+      border-radius: 50%;
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+  
+    .range-slider input[type="range"]::-webkit-slider-thumb:hover {
+      background-color: #000000;
+    }
+  
+    .range-slider .range-labels {
+      display: flex;
+      justify-content: space-between;
+      color: #000000;
+      font-size: 12px;
+      position: absolute;
+      top: 18px;
+      width: 100%;
+    }
+  
+    .range-slider .range-labels span {
+      position: relative;
+    }
+  
+    .range-slider .range-labels span:before {
+      content: attr(data-label);
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    /* 內部按鈕排列 */
+    .surver1 {
+      display: flex;
+      flex-direction: column;
+    }
+
+     /* 自訂 radio 按鈕外觀 */
+  input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    transition: border-color 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  input[type="radio"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 20px;
+    height: 20px;
+    background-color: #000000;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  input[type="radio"]:checked::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* 標籤文字 */
+  input[type="radio"] + label {
+    font-size: 14px;
+    color: #000000;
+    margin-left: 8px;
+    cursor: pointer;
+  }
+    
+    @media (max-width: 600px) {
+      form {
+        width: 100%;
+      }
+      #game {
+        width: 100%;
+        border-radius: 0px;
+      }
+    }
+  </style>
+  <body>
+  <div id="game">
+    <form>
+      <div class="que-con">
+        <label for="gender">性別：</label>
+        <br>
+        <div class="survey1">
+          <input type="radio" name="gender" value="男"> 男
+          <input type="radio" name="gender" value="女"> 女
+        </div>
+      </div>
+      <div class="que-con">
+      <label for="age">年齡：</label>
+      <br>
+        <div class="survey1">
+          <input type="radio" name="age" value="國小以下"> 國小以下
+          <input type="radio" name="age" value="國中"> 國中
+          <input type="radio" name="age" value="高中"> 高中
+          <input type="radio" name="age" value="大學"> 大學
+          <input type="radio" name="age" value="研究所~30歲"> 研究所~30歲
+          <input type="radio" name="age" value="31~40歲"> 31~40歲
+          <input type="radio" name="age" value="41歲以上"> 41歲以上
+        </div>
+      </div>
+<br><br>
+    
+<div class="que-con">
+      <label for="identity">你覺得自己的身分認同？</label>
+      <br>
+      <textarea id="identity" name="identity" rows="4" cols="50"></textarea>
+    </div>
+      <!--這邊是容貌焦慮測驗-->
+
+      
+<div class="que-con">
+  <label for="selfAppearance">你對自己的外表會打幾分？</label>
+  <br>
+  <div class="range-slider">
+    <input type="range" id="selfAppearance" name="selfAppearance" min="1" max="10">
+    <div class="range-labels">
+      <span data-label="1"></span>
+      <span data-label="5"></span>
+      <span data-label="10"></span>
+    </div>
+  </div>
+</div>
+
+<div class="que-con">
+    <label for="satisfaction">你會不滿意自己的外表嗎？</label>
+  <br>
+  <div class="range-slider">
+    <input type="range" id="satisfaction" name="satisfaction" min="1" max="10">
+    <div class="range-labels">
+      <span data-label="1"></span>
+      <span data-label="5"></span>
+      <span data-label="10"></span>
+    </div>
+  </div>
+</div>
+
+    <div class="que-con">
+      <label for="effort">你自認外表上花了多少功夫？</label>
+      <br>
+      <div class="range-slider">
+        <input type="range" id="effort" name="effort" min="1" max="10">
+        <div class="range-labels">
+          <span data-label="1"></span>
+          <span data-label="5"></span>
+          <span data-label="10"></span>
+        </div>
+      </div>
+    </div>
+
+    
+       <button type="button" class="sumit" onclick="location.href='index_grid.html'">送出</button>
+    </form>
+  </body>
+  </html>
+  </div>
+  </body>
+</html>

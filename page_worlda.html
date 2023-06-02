@@ -1,16 +1,9 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
 	<title>world</title>
     <link rel="icon" href="Demo16.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="nav_bar.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>
-        $(function(){
-            $(".navbar").load("navbar.html");
-        });
-    </script>
 	<style>
         body {
             background-color: #000000;
@@ -38,25 +31,32 @@
     <div class="navbar"></div>
     <div class="main">
         <div></div>
+        <img src="world_title1.png">
+        <img src="world_0.png">
+        <img src="world_1.png">
         <img src="world_2.png">
         <img src="world_3.png">
         <img src="world_4.png">
     </div>
-<script>
-    const navbar = document.querySelector(".navbar");
-let prevScrollpos = window.pageYOffset;
-window.addEventListener("scroll", () => {
-  const currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    navbar.classList.remove("hide");
-  } 
-  if (prevScrollpos < currentScrollPos) {
-    navbar.classList.add("hide");
-  }
-  prevScrollpos = currentScrollPos;
-});
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        const navbar = document.querySelector(".navbar");
+        let prevScrollpos = window.pageYOffset;
+        window.addEventListener("scroll", () => {
+          const currentScrollPos = window.pageYOffset;
+          if (prevScrollpos > currentScrollPos) {
+            navbar.classList.remove("hide");
+          } 
+          if (prevScrollpos < currentScrollPos) {
+            navbar.classList.add("hide");
+          }
+          prevScrollpos = currentScrollPos;
+        });
 
-</script>
+        $(function(){
+            $(".navbar").load("navbar.html");
+        });
+    </script>
 </body>
 </html>

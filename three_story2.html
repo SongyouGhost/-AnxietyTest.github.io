@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>簡單的Galgame</title>
+    <link rel="stylesheet" type="text/css" href="three_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap">
+
+  </head>
+  <body>
+  <div id="game">
+    <div class="img-con"><img id="avatar" src=""></div>
+    <div class="dialogue-con">
+      <div id="dialogue"></div>
+    </div>
+    <div class="but-con">
+    <div id="choices"></div>
+  </div>
+  </div>
+  </body>
+  <script src="three_story2.js"></script>
+    <script>
+      const dialogue = document.getElementById("dialogue");
+      const choices = document.getElementById("choices");
+      const avatar = document.getElementById("avatar");
+      const inputNumber = document.getElementById('inputNumber');
+      var name = "";
+      var phone = "";
+
+      const displayStory = (storyId) => {
+        let currentStory = story[storyId];
+        dialogue.innerHTML = currentStory.text;
+        avatar.setAttribute("src", currentStory.avatars);
+        choices.innerHTML = "";
+        currentStory.choices.forEach((choice) => {
+          const button = document.createElement("button");
+          button.innerHTML = choice.text;
+          button.addEventListener("click", () => {
+            //if (choice.nextId = 0) {
+              //number = inputNumber.value;
+              //displayStory(choice.nextId); }
+            if (choice.nextId !== -1) {
+              displayStory(choice.nextId);
+            } else {
+              dialogue.innerHTML = "<a href='four_chi.html'>模擬結束</a>";
+              avatar.setAttribute("src", "");
+              choices.innerHTML = "";
+            }
+          });
+          choices.appendChild(button);
+        });
+      }
+      
+      displayStory(0);
+
+      function submitForm() {
+        let nameInput = document.getElementById("name");
+        let phoneInput = document.getElementById("phone");
+        let name = nameInput.value;
+        let phone = phoneInput.value;
+        document.getElementById("output").innerHTML = `Name: ${name}<br>Phone: ${phone}`;
+      }
+      
+</script>
+</html>
